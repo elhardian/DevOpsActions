@@ -21,4 +21,4 @@ jobs:
       - name: Dockerize
         run: |
           docker build . -t "$APP_NAME:$TAG"
-          docker run --name $APP_NAME -p 80:8082 -d $APP_NAME:$TAG
+          docker run --name $APP_NAME -p 8082:8082 -d $APP_NAME:$TAG
