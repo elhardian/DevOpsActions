@@ -1,0 +1,8 @@
+version: "3.3"
+
+services:
+  api:
+    container_name: devops-challenge
+    build: .
+    ports:
+      - 8082:8082
