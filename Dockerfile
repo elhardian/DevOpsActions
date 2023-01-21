@@ -12,5 +12,4 @@ RUN apt-get install -y adoptopenjdk-11-hotspot
 
 WORKDIR /root/app
 ADD app.jar app.jar
-EXPOSE 8082
 CMD /usr/bin/java -jar app.jar
