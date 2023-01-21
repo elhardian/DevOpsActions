@@ -1,0 +1,24 @@
+name: 'LGTM!!! 🚀🚀'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  TAG: latest
+  APP_NAME: devops-challenge
+
+jobs:
+  staging_deploy:
+    runs-on: upwork
+    environment:
+      name: "staging"
+      url: https://devops-challenge.ray-farm.com/
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dockerize
+        run: |
+          docker build . -t "$APP_NAME:$TAG"
+          docker run --name $APP_NAME -p 80:8082 -d $APP_NAME:$TAG
